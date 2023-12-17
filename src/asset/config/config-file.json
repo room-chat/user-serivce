@@ -1,0 +1,17 @@
+{
+  "app": {
+    "host": "localhost",
+    "port": 3000
+  },
+  "kafka": {
+    "clientId": "pbx-chat",
+    "groupId": "pbx-chat",
+    "brokers": ["localhost:19092"],
+    "producerTopics": {
+      "chatTopic": "CHAT-MESSAGING"
+    },
+    "consumerTopics": {
+      "chatTopic": "CHAT-MESSAGING"
+    }
+  }
+}
