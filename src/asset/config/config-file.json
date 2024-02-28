@@ -1,17 +1,22 @@
 {
   "app": {
     "host": "localhost",
-    "port": 3000
+    "port": 3001
   },
   "kafka": {
     "clientId": "pbx-chat",
     "groupId": "pbx-chat",
     "brokers": ["localhost:19092"],
     "producerTopics": {
-      "chatTopic": "CHAT-MESSAGING"
+      "chatTopic": "CHAT-MESSAGING-TOPIC"
     },
     "consumerTopics": {
-      "chatTopic": "CHAT-MESSAGING"
-    }
+      "chatTopic": "CHAT-MESSAGING-TOPIC"
+    },
+    "ssl": false,
+    "sasl": false
+  },
+  "http": {
+    "dbManageHttp": "http://localhost:3000"
   }
 }
