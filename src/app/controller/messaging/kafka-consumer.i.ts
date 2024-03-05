@@ -1,6 +1,8 @@
-export const topic = 'CHAT-MESSAGING';
+import { KafkaConfig } from '../../../enviroment/kafka';
 
-export interface EventMessage extends KafkaInterface{
+export const consumer = new KafkaConfig().consumerTopics;
+
+export interface EventMessageArg extends KafkaInterface {
   eventName: string;
   data: any;
 }
