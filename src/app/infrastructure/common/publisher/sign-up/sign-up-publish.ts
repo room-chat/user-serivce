@@ -5,11 +5,14 @@ import { KafkaProducerService } from '../producer/kafka-producer';
 export class SignUpPublish {
   constructor(private producer: KafkaProducerService) {}
 
-  public async publish(params): Promise<void> {
+  public async publish(topic: string, data: any): Promise<void> {
     const message = {
-      key: params.key,
-      value: params.value
+      topic: topic,
+      messages: [{
+        key: '',
+        value: data
+      }]
     }
-    await this.producer.send(params.topic, message);
+    await this.producer.send(message);
   }
 }
