@@ -9,7 +9,7 @@ export class ConfigService {
   public readonly kafkaConfig: KafkaConfig;
   public readonly httpConfig: HttpConfig;
 
-  constructor(){
+  constructor() {
     this.kafkaConfig = new KafkaConfig();
     this.httpConfig = new HttpConfig();
   }
@@ -22,7 +22,7 @@ export class ConfigService {
           clientId: this.kafkaConfig.clientId,
           brokers: this.kafkaConfig.brokers,
           ssl: this.kafkaConfig.ssl,
-          sasl: undefined
+          sasl: undefined,
         },
         consumer: {
           groupId: this.kafkaConfig.groupId,
@@ -34,7 +34,13 @@ export class ConfigService {
     };
   }
 
-  public HttpConfig(){
-    return this.httpConfig.dbManageHttp;
+  public HttpConfig() {
+    return {
+      dbHttpUrl: {
+        getUserInfor: `${this.httpConfig.dbManageHttp}/user-information/:email`,
+        authorized: `${this.httpConfig.dbManageHttp}/authorized-user`,
+        createUser: `${this.httpConfig.dbManageHttp}/create-user`,
+      },
+    };
   }
 }

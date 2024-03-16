@@ -10,7 +10,7 @@ export class SignUpPublish {
       topic: topic,
       messages: [{
         key: '',
-        value: data
+        value: JSON.stringify(data)
       }]
     }
     await this.producer.send(message);

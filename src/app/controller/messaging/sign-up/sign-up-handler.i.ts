@@ -1,8 +1,4 @@
-export interface GetUserParams {
-  email: string
-}
-
-export interface UserInforParams{
+export interface CreateUserParams{
   email: string;
   password: string;
   firstName?: string;

@@ -4,8 +4,8 @@
     "port": 3001
   },
   "kafka": {
-    "clientId": "pbx-chat",
-    "groupId": "pbx-chat",
+    "clientId": "chat-user",
+    "groupId": "chat-user",
     "brokers": ["localhost:19092"],
     "producerTopics": {
       "chatTopic": "CHAT-MESSAGING-TOPIC"

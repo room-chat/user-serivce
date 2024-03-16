@@ -1,0 +1,27 @@
+import { Injectable } from "@nestjs/common";
+import { CreateUserParams, SignUpRes } from "./sign-up.usecase.i";
+import { ChatLogger } from "../../../app/infrastructure/common/utils/logger/logger";
+import { ChatKafkaResultTopic } from "../../../app/infrastructure/common/publisher/producer/kafka-producer.i";
+import { SignUpService } from "../../../app/service/sign-up/sign-up.service";
+import { SignUpPublish } from "../../../app/infrastructure/common/publisher/sign-up/sign-up-publish";
+
+@Injectable()
+export class SignUpUsecase{
+
+  constructor(private logger: ChatLogger, private signUpService: SignUpService, private producer: SignUpPublish){}
+
+  public async excute(userParam: CreateUserParams): Promise<SignUpRes> {
+    this.logger.log("Excute register new user");
+
+    const data = await this.signUpService.getUser({ email: userParam.email });
+    if (data) {
+      this.logger.log('User has found', 'GETUSER');
+      await this.producer.publish(ChatKafkaResultTopic.CREAT_USER, data);
+    }
+    
+    this.logger.log("User wasn't found", 'GETUSER');
+
+    const createUser = await this.signUpService.createUser(userParam);
+    return createUser;
+  }
+}

@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Kafka, ProducerRecord } from 'kafkajs';
 import { ConfigService } from '../../../config/config.service';
-import { IMessage } from './kafka-producer.i';
 import { ChatLogger } from '../../utils/logger/logger';
 
 @Injectable()

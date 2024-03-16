@@ -1,8 +1,12 @@
-export interface GetUserParams {
-  email: string
+export interface SignUpRes {
+  message?: string;
+  code?: string;
+  data?: {
+    email: string;
+  };
 }
 
-export interface UserInforParams{
+export interface CreateUserParams {
   email: string;
   password: string;
   firstName?: string;
