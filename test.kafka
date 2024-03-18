@@ -1,7 +1,16 @@
-PRODUCER pbx-chat
-topic: CHAT-MESSAGING
+PRODUCER chat-user
+topic: CHAT-MESSAGING-TOPIC
 {
-
+  "eventName": "create-user",
+  "data":{
+    "email": "british@example.com",
+    "password": "password",
+    "firstName": "",
+    "lastName?": "",
+    "city": "",
+    "address": "",
+    "dayOfBirth": ""
+  }
 }
 
 ###

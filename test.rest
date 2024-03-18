@@ -1,0 +1,16 @@
+POST http://localhost:3001/authorized-user
+Content-Type: application/json
+
+{
+  "email": "british@example.com",
+  "password": "password"
+}
+
+###
+POST http://localhost:3001/authorized-user
+Content-Type: application/json
+
+{
+  "email": "yamaguchi@example.com",
+  "password": "password"
+}
